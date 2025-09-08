@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sprite Roguelike</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%2314141a'/%3E%3Ccircle cx='8' cy='8' r='5' fill='%23f7d154'/%3E%3C/svg%3E"/>
+    <style>
+      html, body, #app { height: 100%; margin: 0; background: #0f0f12; }
+      #app { display: grid; place-items: center; }
+      #stack { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+      .stats { color: #e2e2f0; font: 12px/1.2 system-ui, sans-serif; opacity: 0.95; }
+      .stats .hp { color: #f2756b; }
+      .stats .atk { color: #d9c772; }
+      .stats .gold { color: #f7d154; }
+      .modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.55); }
+      .modal .panel { background: #1b1b22; color: #e2e2f0; border: 1px solid #2a2a33; border-radius: 8px; padding: 12px 14px; min-width: 220px; font: 12px/1.3 system-ui, sans-serif; box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+      .modal .panel h3 { margin: 0 0 8px 0; font-size: 13px; color: #d9c772; }
+      .modal .panel ul { list-style: none; margin: 0; padding: 0; }
+      .modal .panel li { margin: 4px 0; padding: 2px 6px; border-radius: 4px; }
+      .modal .panel li.selected { background: #2a2a33; }
+      .log { color: #b5b5c3; font: 12px/1.2 system-ui, sans-serif; opacity: 0.9; min-height: 1.2em; }
+      .hint { position: fixed; left: 8px; bottom: 8px; color: #a7a7b4; font: 12px/1.2 system-ui, sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="stack"></div>
+    </div>
+    <div class="hint">Arrows / WASD to move • R to regen map</div>
+    <div id="inventory-modal" class="modal">
+      <div class="panel">
+        <h3>Inventory</h3>
+        <ul id="inventory-list"></ul>
+        <div style="margin-top:8px; color:#b5b5c3;">Press I to close</div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+  </html>
